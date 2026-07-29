@@ -4,7 +4,9 @@
   "description": "A beginner-friendly Node.js Express app containerized with Docker",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "lint": "echo \"No lint configured\"",
+    "test": "echo \"No tests configured\""
   },
   "dependencies": {
     "express": "^4.21.2"
