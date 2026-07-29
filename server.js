@@ -16,6 +16,14 @@ app.get('/', (req, res) => {
   });
 });
 
+// Handle 404 Not Found errors for undefined routes
+app.use((req, res) => {
+  res.status(404).json({
+    error: 'Not Found',
+    status: 404
+  });
+});
+
 // Start the server and listen for incoming traffic on the specified port
 app.listen(PORT, () => {
   console.log(`Server is running smoothly on http://localhost:${PORT}`);
