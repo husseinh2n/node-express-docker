@@ -7,11 +7,11 @@ import pytest
 @pytest.fixture(scope="module", autouse=True)
 def docker_compose_env():
     """
-    Setup: Build and start the Docker containers using docker-compose before tests run.
+    Setup: Build and start the Docker containers using docker compose before tests run.
     Teardown: Stop and remove containers after all tests in this module complete.
     """
     # Start containers in detached mode and build if necessary
-    subprocess.run(["docker-compose", "up", "-d", "--build"], check=True)
+    subprocess.run(["docker", "compose", "up", "-d", "--build"], check=True)
     
     # Wait a few seconds for the Express server to fully start up inside the container
     time.sleep(3)
@@ -19,7 +19,7 @@ def docker_compose_env():
     yield
     
     # Teardown: Stop and remove containers, networks, and volumes
-    subprocess.run(["docker-compose", "down"], check=True)
+    subprocess.run(["docker", "compose", "down"], check=True)
 
 def test_homepage_happy_path():
     """

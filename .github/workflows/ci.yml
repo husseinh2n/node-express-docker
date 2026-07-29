@@ -29,6 +29,14 @@ jobs:
       - name: Run tests
         run: npm test
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install test dependencies
+        run: pip install pytest requests
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
