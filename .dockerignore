@@ -1,0 +1,14 @@
+# Prevent local node_modules from being copied into the container (we install them fresh inside)
+node_modules
+
+# Prevent local environment files from being baked into the image
+.env
+
+# Ignore local git repository files
+.git
+.gitignore
+
+# Ignore Docker-related files so they aren't copied into the build context unnecessarily
+Dockerfile
+docker-compose.yml
+.dockerignore
